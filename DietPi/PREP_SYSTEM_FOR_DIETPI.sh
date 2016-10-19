@@ -70,9 +70,9 @@ deb http://ftp.debian.org/debian jessie-backports main contrib non-free
 _EOF_
 
 # RPI UK mirror director is slow, unstable and unreliable -------------------------
-cat << _EOF_ > /etc/apt/sources.list
-deb http://mirror.ox.ac.uk/sites/archive.raspbian.org/archive/raspbian jessie main contrib non-free rpi
-_EOF_
+#cat << _EOF_ > /etc/apt/sources.list
+#deb http://mirror.ox.ac.uk/sites/archive.raspbian.org/archive/raspbian jessie main contrib non-free rpi
+#_EOF_
 
 #Stretch
 # cat << _EOF_ > /etc/apt/sources.list
@@ -113,7 +113,7 @@ echo -e "CONF_SWAPSIZE=0" > /etc/dphys-swapfile
 apt-get install -y ethtool p7zip-full hfsplus iw debconf-utils xz-utils ifmetric fbset wpasupplicant resolvconf bc dbus bzip2 psmisc bash-completion cron whiptail sudo ntp ntfs-3g dosfstools parted hdparm pciutils usbutils zip htop wput wget fake-hwclock dphys-swapfile curl unzip ca-certificates console-setup console-data console-common keyboard-configuration wireless-tools wireless-regdb crda --no-install-recommends
 
 #??? bluetooth if onboard device
-apt-get install -y bluetooth
+#apt-get install -y bluetooth
 
 #firmware
 apt-get install -y firmware-realtek firmware-ralink firmware-brcm80211 firmware-atheros -y --no-install-recommends
@@ -375,9 +375,9 @@ dpkg-reconfigure keyboard-configuration #Keyboard must be plugged in for this to
 dpkg-reconfigure locales # en_GB.UTF8 as default and only installed locale
 
 #??? RPI ONLY: Scroll lock fix for RPi by Midwan: https://github.com/Fourdee/DietPi/issues/474#issuecomment-243215674
-cat << _EOF_ > /etc/udev/rules.d/50-leds.rules
-ACTION=="add", SUBSYSTEM=="leds", ENV{DEVPATH}=="*/input*::scrolllock", ATTR{trigger}="kbd-scrollock"
-_EOF_
+#cat << _EOF_ > /etc/udev/rules.d/50-leds.rules
+#ACTION=="add", SUBSYSTEM=="leds", ENV{DEVPATH}=="*/input*::scrolllock", ATTR{trigger}="kbd-scrollock"
+#_EOF_
 
 #------------------------------------------------------------------------------------------------
 #A Unique HW_MODEL index will need to be assigned and coded into the DietPi sourcecode.
@@ -394,7 +394,7 @@ _EOF_
 /DietPi/dietpi/finalise
 
 #??? Does this device have a unique HW ID index and file? check /DietPi/dietpi/dietpi-obtain_hw_model
-echo ID > /etc/.dietpi_hw_model_identifier
+echo 12 > /etc/.dietpi_hw_model_identifier
 
 #Power off system
 
