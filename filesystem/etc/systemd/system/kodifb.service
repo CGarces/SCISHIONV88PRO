@@ -1,0 +1,15 @@
+[Unit]
+Description=kodi on tty5
+
+[Service]
+Type=simple
+ExecStart=/bin/su -c '/usr/local/bin/kodi' -l carlos
+ExecStop=/bin/kill -HUP ${MAINPID}
+StandardInput=tty
+StandardOutput=tty
+TTYPath=/dev/tty5
+Restart=no
+RestartSec=2
+
+[Install]
+WantedBy=getty.target
